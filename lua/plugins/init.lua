@@ -6,7 +6,7 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "lua", "vimdoc" },
+				ensure_installed = { "lua", "vimdoc", "go" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
@@ -34,8 +34,8 @@ return {
 					end,
 				},
 				window = {
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -78,8 +78,6 @@ return {
 			local lsp_configs = {
 				gopls = {},
 				lua_ls = {
-					capabilities = capabilities,
-
 					on_init = function(client)
 						if client.workspace_folders then
 							local path = client.workspace_folders[1].name
