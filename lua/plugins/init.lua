@@ -14,6 +14,12 @@ return {
 		end,
 	},
 	{
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		-- these dependencies will only be loaded when cmp loads
 		-- dependencies are always lazy-loaded unless specified otherwise
