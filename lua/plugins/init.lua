@@ -1,12 +1,15 @@
 return {
 	{
+		"tpope/vim-fugitive",
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "lua", "vimdoc", "go" },
+				ensure_installed = { "css", "lua", "vimdoc", "go" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
@@ -77,12 +80,17 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format)
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 
 			-- Set up lspconfig.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lsp_configs = {
+				ts_ls = {},
 				gopls = {},
+				svelte = {},
+				cssls = {},
 				lua_ls = {
 					on_init = function(client)
 						if client.workspace_folders then
