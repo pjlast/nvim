@@ -3,13 +3,19 @@ return {
 		"tpope/vim-fugitive",
 	},
 	{
+		"lewis6991/gitsigns.nvim",
+		config = function ()
+			require('gitsigns').setup()
+		end
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "css", "lua", "vimdoc", "go" },
+				ensure_installed = { "css", "lua", "vimdoc", "go", "templ", "odin", "zig" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
@@ -86,11 +92,16 @@ return {
 			-- Set up lspconfig.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			vim.filetype.add({ extension = { templ = "templ" } })
+
 			local lsp_configs = {
 				ts_ls = {},
 				gopls = {},
 				svelte = {},
 				cssls = {},
+				templ = {},
+				ols = {},
+				zls = {},
 				lua_ls = {
 					on_init = function(client)
 						if client.workspace_folders then
