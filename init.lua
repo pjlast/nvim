@@ -22,7 +22,7 @@ vim.lsp.config('*', {
 
 -- Enable all LSPs in the lsp directory if the LSP's cmd
 -- is executable.
-for name, _ in vim.fs.dir('$XDG_CONFIG_HOME/nvim/lsp/') do
+for name, _ in vim.fs.dir('~/.config/nvim/lsp/') do
 	local lsp_name = vim.fn.split(name, '\\.')[1]
 	if vim.fn.executable(vim.lsp.config[lsp_name].cmd[1]) then
 		vim.lsp.enable(lsp_name)

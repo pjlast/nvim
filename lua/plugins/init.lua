@@ -29,6 +29,7 @@ return {
 			{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
 			{ "<leader>ff", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
 			{ "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+			{ "<leader>fn", function() Snacks.picker.notifications() end, desc = "Notifications" },
 			{ "gd", function() Snacks.picker.lsp_definitions() end, desc = "LSP Definitions" },
 			{ "gr", function() Snacks.picker.lsp_references() end, desc = "LSP References" },
 			{ "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "LSP Type Definitions" },
@@ -69,12 +70,6 @@ return {
 		lazy = false,
 	},
 	{
-		'pjlast/ai.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim' },
-		dev = true,
-		dir = '~/code/ai.nvim',
-	},
-	{
 		'saghen/blink.cmp',
 		version = '1.*',
 
@@ -92,13 +87,5 @@ return {
 			fuzzy = { implementation = 'prefer_rust_with_warning' }
 		},
 		opts_extend = { 'sources.default' }
-	},
-	{
-		'amp.nvim',
-		dir = '~/code/amp.nvim',
-		dev = true,
-		config = function()
-			require('amp').setup()
-		end
 	},
 }
