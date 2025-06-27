@@ -13,6 +13,14 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function()
 		vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format, nil)
+		vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, nil)
+		vim.keymap.set('n', '[d', function()
+			vim.diagnostic.jump({count=-1, float=true})
+		end, {})
+		vim.keymap.set('n', ']d', function()
+			vim.diagnostic.jump({count=1, float=true})
+		end, {})
+		vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, nil)
 	end
 })
 
