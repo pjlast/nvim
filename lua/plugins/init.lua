@@ -15,7 +15,6 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 			bigfile = { enabled = true },
-			dashboard = { enabled = true },
 			explorer = { enabled = true },
 			indent = { enabled = true },
 			input = { enabled = true },
@@ -50,7 +49,7 @@ return {
 				ignore_install = {},
 				modules = {},
 				auto_install = false,
-				ensure_installed = { 'c', 'cpp', 'css', 'd', 'html', 'idris', 'json', 'jsonc', 'lua', 'vimdoc', 'go', 'templ', 'odin', 'zig' },
+				ensure_installed = { 'c', 'cpp', 'css', 'html', 'json', 'jsonc', 'lua', 'nix', 'vimdoc', 'go' },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
