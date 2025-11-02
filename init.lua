@@ -14,6 +14,10 @@ require('gruvbox').setup({ contrast = 'hard' })
 vim.cmd([[colorscheme gruvbox]])
 
 require('gitsigns').setup({})
+---@diagnostic disable-next-line: param-type-mismatch
+vim.keymap.set('n', ']c', function() require('gitsigns').nav_hunk('next') end, {})
+---@diagnostic disable-next-line: param-type-mismatch
+vim.keymap.set('n', '[c', function() require('gitsigns').nav_hunk('prev') end, {})
 
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = { 'zig' },
