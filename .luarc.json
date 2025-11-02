@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "checkThirdParty": false,
+    "library": ["$VIMRUNTIME", "~/.local/share/nvim/site/pack/core/opt", "${3rd}/luv/library"]
+  }
+}
